@@ -1,0 +1,563 @@
+/* ==========================================================================
+   Google Style Start Page Stylesheet
+   ========================================================================== */
+
+:root {
+  --primary-color: #4285f4;
+  --text-main: #202124;
+  --text-secondary: #5f6368;
+  --text-muted: #70757a;
+  --bg-color: #ffffff;
+  --card-bg: #ffffff;
+  --border-color: #dfe1e5;
+  --card-border: #dadce0;
+  --btn-bg: #f8f9fa;
+  --btn-border: #f8f9fa;
+  --btn-hover-bg: #f1f3f4;
+  --btn-hover-border: #dadce0;
+  --shadow-hover: 0 1px 6px rgba(32, 33, 36, 0.28);
+  --shadow-card: 0 1px 3px rgba(60, 64, 67, 0.12), 0 1px 2px rgba(60, 64, 67, 0.15);
+  --radius-pill: 24px;
+  --radius-card: 12px;
+  --font-family: 'Roboto', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ==========================================================================
+   Header, SDU Logo & Weather Widgets
+   ========================================================================== */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 서울디지털대학교 로고 링크 */
+.sdu-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.sdu-logo-link:hover {
+  background-color: #f8f9fa;
+  border-color: #dadce0;
+  box-shadow: var(--shadow-card);
+  transform: translateY(-1px);
+}
+
+.sdu-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 1px 2px rgba(0, 62, 126, 0.25));
+}
+
+.sdu-logo-mark svg {
+  display: block;
+}
+
+.sdu-text-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.sdu-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #003e7e;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.sdu-sub {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #70757a;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* 헤더 우측 영역 */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weather-container {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.weather-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  padding: 12px 16px;
+  min-width: 170px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(60, 64, 67, 0.15);
+}
+
+.weather-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.weather-badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background-color: #e8f0fe;
+  color: #1a73e8;
+  font-weight: 500;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 2px 0;
+}
+
+.weather-icon {
+  font-size: 28px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.weather-card:hover .weather-icon {
+  transform: scale(1.1);
+}
+
+.temp-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.weather-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.weather-details {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 4px;
+  border-top: 1px solid #f1f3f4;
+}
+
+.weather-details strong {
+  color: var(--text-secondary);
+}
+
+.divider {
+  color: #dadce0;
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+  color: var(--text-main);
+}
+
+.icon-btn.spinning svg {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Main Content & Google Search
+   ========================================================================== */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: -30px; /* 구글 메인 특유의 중심축 위치 보정 */
+}
+
+.logo-container {
+  margin-bottom: 26px;
+  user-select: none;
+}
+
+.google-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.search-form {
+  width: 100%;
+  max-width: 584px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-box:hover,
+.search-box:focus-within {
+  border-color: rgba(223, 225, 229, 0);
+  box-shadow: var(--shadow-hover);
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+}
+
+.search-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--text-main);
+  padding: 0;
+}
+
+.search-input::placeholder {
+  color: #9aa0a6;
+}
+
+.clear-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #70757a;
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 6px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-btn:hover {
+  color: var(--text-main);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clear-btn.visible {
+  display: flex;
+}
+
+.voice-search-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-left: 6px;
+}
+
+.search-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+
+.google-btn {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: inherit;
+  font-size: 14px;
+  height: 36px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+
+.google-btn:hover {
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+  color: #202124;
+}
+
+.google-btn:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+/* ==========================================================================
+   Footer & Quotes Section
+   ========================================================================== */
+
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-card {
+  max-width: 650px;
+  width: 90%;
+  margin: 0 auto 30px auto;
+  background: #fafafa;
+  border: 1px solid #f1f3f4;
+  border-radius: 16px;
+  padding: 20px 24px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+  background: #ffffff;
+  border-color: #e8eaed;
+  box-shadow: 0 4px 12px rgba(60, 64, 67, 0.08);
+}
+
+.quote-icon {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  color: #bcc1c8;
+  line-height: 1;
+  user-select: none;
+}
+
+.quote-open {
+  margin-bottom: -10px;
+}
+
+.quote-close {
+  margin-top: -10px;
+}
+
+.quote-content {
+  padding: 10px 18px;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.quote-content.fade-out {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.quote-text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3c4043;
+  font-weight: 500;
+  word-break: keep-all;
+}
+
+.quote-author {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.quote-refresh-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #dadce0;
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quote-refresh-btn:hover {
+  background-color: #f1f3f4;
+  color: var(--text-main);
+  border-color: #bdc1c6;
+}
+
+.quote-refresh-btn.spinning svg {
+  animation: spin 0.6s ease-in-out;
+}
+
+.footer-bar {
+  width: 100%;
+  background-color: #f2f2f2;
+  border-top: 1px solid #dadce0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-right {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-right a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-right a:hover {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 16px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .weather-container {
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .weather-card {
+    flex: 1;
+    min-width: 130px;
+    padding: 10px 12px;
+  }
+
+  #refresh-weather-btn {
+    align-self: center;
+  }
+}
+
+  .main-content {
+    margin-top: 10px;
+    padding: 16px;
+  }
+
+  .google-logo {
+    width: 200px;
+  }
+
+  .quote-card {
+    width: 95%;
+    padding: 16px;
+  }
+
+  .footer-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+}
